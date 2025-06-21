@@ -19,6 +19,6 @@ elevator. Each elevator then processes their queue moving from floor to floor.
    ```
  - C++
    ```
-   g++ -o main *.cpp
+   g++ -o main src/*.cpp
    ./main
    ```

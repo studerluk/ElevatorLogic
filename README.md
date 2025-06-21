@@ -1,5 +1,7 @@
 # Simple Elevator Simulation
 
+> This project was first developed in 2015 and later published in 2025.
+
 Simple elevator logic simulator based on the producer/consumer paradigm.
 
 ![](doc/overview.drawio.png)

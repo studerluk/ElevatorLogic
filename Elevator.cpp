@@ -57,7 +57,7 @@ void Elevator::addRequest(Request *request) {
 		else if (request->source <= this->pos)
 			this->heading = D_DOWN;
 	}
-	
+
 	this->lors.push_back(request->source);
 	this->lors.push_back(request->destination);
 	this->sortRequests();
@@ -65,9 +65,14 @@ void Elevator::addRequest(Request *request) {
 
 void Elevator::sortRequests(void) {
 	sort(begin(this->lors), end(this->lors));
+
 	if (this->heading == D_DOWN) {
 		reverse(begin(this->lors), end(this->lors));
 	}
+
+	// remove duplicates
+	auto last = unique(begin(this->lors), end(this->lors));
+	this->lors.erase(last, end(this->lors));
 }
 
 void Elevator::go(void) {

@@ -25,8 +25,8 @@ void someRandomBtnPushing(vector<Button *> btns) {
 	while (true) {
 		int btn = rand() % n;
 		int dest = rand() % n;
-		int delay = rand() % 10000000;
-		
+		int delay = rand() % 1000000;
+
 		btns.at(btn)->go2(dest);
 		usleep(delay);
 	}
@@ -43,10 +43,10 @@ int main(int argc, char *argv[]) {
 	elevators.push_back(new Elevator(4, 5));
 
 	thread te0(elevatorMainLoop, elevators.at(0));
-//	thread te1(elevatorMainLoop, elevators.at(1));
+	thread te1(elevatorMainLoop, elevators.at(1));
 	thread te2(elevatorMainLoop, elevators.at(2));
 	thread te3(elevatorMainLoop, elevators.at(3));
-//	thread te4(elevatorMainLoop, elevators.at(4));
+	thread te4(elevatorMainLoop, elevators.at(4));
 
 	Queue *queue = new Queue(elevators);
 
